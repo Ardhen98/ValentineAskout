@@ -220,6 +220,7 @@ export default function Page() {
       "Think again!",
       "Last chance!",
       "Surely not?",
+      "Aasa Nako Karu",
       "You might regret this!",
       "Give it another thought!",
       "Are you absolutely certain?",
@@ -247,7 +248,7 @@ export default function Page() {
   useEffect(() => {
     if (yesPressed && noCount < 4 && !popupShown) {
       Swal.fire({
-        title: "I love you sooo Much!!!❤️, You’ve stolen my heart completely!!! 🥰💖 But itni pyaari ladki aur itni jaldi haan? Thoda aur nakhre karke mujhe tarpaao na! 🥰✨",
+        title: "I love you sooo Much!!!❤️, You’ve stolen my heart completely!!! 🥰💖 My Tutu, Love you forever! 🥰✨",
         showClass: {
           popup: `
             animate__animated
@@ -345,7 +346,7 @@ export default function Page() {
               alt="Love Animation"
             />
             <h1 className="text-4xl md:text-6xl my-4 text-center">
-              Will you be my Valentine?
+              My Cutie Tutu, Will you be my Valentine?
             </h1>
             <div className="flex flex-wrap justify-center gap-2 items-center">
               <button
@@ -391,27 +392,14 @@ export default function Page() {
 
 const Footer = () => {
   return (
-    <a
+    <div
       className="fixed bottom-2 right-2 backdrop-blur-md opacity-80 hover:opacity-95 border p-1 rounded border-rose-300"
-      href="https://github.com/UjjwalSaini07"
-      target="_blank"
-      rel="noopener noreferrer"
     >
       Made with{" "}
       <span role="img" aria-label="heart">
         ❤️
       </span>
-      {" "}by Ujjwal
-    </a>
+      {" "}by Ardhen
+    </div>
   );
 };
-
-
-
-
-
-
-
-// ! Pathways-
-// https://app.spline.design/file/48a9d880-40c9-4239-bd97-973aae012ee0
-// https://app.spline.design/file/72e6aee2-57ed-4698-afa7-430f8ed7bd87
