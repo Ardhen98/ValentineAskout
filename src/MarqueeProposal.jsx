@@ -6,6 +6,8 @@ const MarqueeProposal = () => {
   const sentences = [
     "You light up my world like no one else.",
     "Every moment with you feels like magic.",
+    "I’m so lucky to have you",
+    "You are the melody that fills my heart with joy",
     "My world begins and ends with you in it.",
     "You're the reason my heart beats faster.",
     "Life feels complete when you're around.",

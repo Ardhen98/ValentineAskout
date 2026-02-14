@@ -171,8 +171,8 @@ export default function Page() {
     const nextCount = noCount + 1;
     setNoCount(nextCount);
 
-    if (nextCount >= 4) {
-      const nextGifIndex = (nextCount - 4) % NoGifs.length; // Start cycling through NoGifs
+    if (nextCount >= 1) {
+      const nextGifIndex = (nextCount - 1) % NoGifs.length; // Start cycling through NoGifs
       if (gifRef.current) {
         gifRef.current.src = NoGifs[nextGifIndex];
       }
@@ -331,7 +331,7 @@ export default function Page() {
       {noCount > 16 && noCount < 25 && yesPressed == false && <MouseStealing />}
 
       <div className="overflow-hidden flex flex-col items-center justify-center pt-4 h-screen -mt-16 selection:bg-rose-600 selection:text-white text-zinc-900">
-        {yesPressed && noCount>3 ? (
+        {yesPressed && noCount>-1 ? (
           <>
             <img
               ref={gifRef}
