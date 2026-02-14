@@ -12,6 +12,8 @@ import WordMareque from './MarqueeProposal.jsx';
 import purposerose from './assets/GifData/RoseCute.gif';
 import swalbg from './assets/Lovingbg2_main.jpg';
 import loveu from './assets/GifData/cutieSwal4.gif';
+import YES from './assets/GifData/YES.jpeg';
+import YES2 from './assets/GifData/YES2.jpeg';
 
 //! yes - Gifs Importing
 import yesgif0 from "./assets/GifData/Yes/lovecutie0.gif";
@@ -39,10 +41,12 @@ import nogif7 from "./assets/GifData/No/RejectNo.gif";
 import nogif8 from "./assets/GifData/No/breakRej7.gif";
 
 //! yes - Music Importing
-import yesmusic1 from "./assets/AudioTracks/Love_LoveMeLikeYouDo.mp3";
-import yesmusic2 from "./assets/AudioTracks/Love_EDPerfect.mp3";
+import yesmusic1 from "./assets/AudioTracks/Sia_-_Snowman.mp3";
+import yesmusic2 from "./assets/AudioTracks/Labon_Ko.mp3";
 import yesmusic3 from "./assets/AudioTracks/Love_Nadaaniyan.mp3";
 import yesmusic4 from "./assets/AudioTracks/Love_JoTumMereHo.mp3";
+import yesmusic5 from "./assets/AudioTracks/Love_LoveMeLikeYouDo.mp3";
+
 //! no - Music Importing
 import nomusic1 from "./assets/AudioTracks/Rejection_WeDontTalkAnyMore.mp3";
 import nomusic2 from "./assets/AudioTracks/Rejection_LoseYouToLoveMe.mp3";
@@ -52,7 +56,7 @@ import nomusic5 from "./assets/AudioTracks/Reject1_TooGood.mp3";
 
 const YesGifs = [yesgif0, yesgif1, yesgif2, yesgif3, yesgif4, yesgif5, yesgif6, yesgif7, yesgif8, yesgif9, yesgif10, yesgif11];
 const NoGifs = [nogif0, nogif0_1, nogif1, nogif2, nogif3, nogif4, nogif5, nogif6, nogif7, nogif8];
-const YesMusic = [yesmusic1, yesmusic3, yesmusic4, yesmusic2];
+const YesMusic = [yesmusic1, yesmusic2, yesmusic3, yesmusic4, yesmusic5];
 const NoMusic = [nomusic1, nomusic2, nomusic3, nomusic4, nomusic5];
 
 export default function Page() {
@@ -72,7 +76,8 @@ export default function Page() {
     let position;
     let tooClose;
     const minDistance = 15; // Minimum distance in 'vw' or 'vh'
-  
+    
+    // create positions
     do {
       position = {
         top: `${Math.random() * 90}vh`, // Keep within 90% of viewport height
@@ -89,6 +94,7 @@ export default function Page() {
     return position;
   };
   
+  // small happy emoji's when hover on Yes
   const handleMouseEnterYes = () => {
     const gifs = [];
     const positions = [];
@@ -110,6 +116,7 @@ export default function Page() {
     setFloatingGifs(gifs);
   };
   
+  // small sad emoji's when hover on No
   const handleMouseEnterNo = () => {
     const gifs = [];
     const positions = [];
@@ -172,20 +179,27 @@ export default function Page() {
     }
 
     // Play song on first press or every 7th press after
-    if (nextCount === 1 || (nextCount - 1) % 7 === 0) {
+    if (nextCount === 1 || (nextCount - 1) % 5 === 0) {
       const nextSongIndex = Math.floor(nextCount / 7) % NoMusic.length;
       playMusic(NoMusic[nextSongIndex], NoMusic);
     }
   };
   
   const handleYesClick = () => {
+    //alert(popupShown)
     if(!popupShown){ // Only for Swal Fire Popup
       setYesPressed(true);
+      playMusic(YesMusic[0], YesMusic);
+      return;
     }
-    if(noCount>3){
+    //alert(noCount)
+    if(noCount>=2){
       setYesPressed(true);
       playMusic(YesMusic[0], YesMusic); // Play the first "Yes" music by default
+      return;
     }
+
+    setPopupShown(false);
   };
   
   const playMusic = (url, musicArray) => {
@@ -216,22 +230,19 @@ export default function Page() {
     const phrases = [
       "No",
       "Are you sure?",
+      "विचार करून घे",
+      "Aasa Nako Karu",
       "Really sure?",
       "Think again!",
       "Last chance!",
       "Surely not?",
-      "Aasa Nako Karu",
       "You might regret this!",
       "Give it another thought!",
       "Are you absolutely certain?",
       "This could be a mistake!",
       "U Have a heart!💕",
-      "Don't be so cold!",
+      "Don't be so cold! 😢",
       "Wouldn't you reconsider?",
-      "Is that your final answer?",
-      "You're breaking my heart ;(",
-      "But... why? 😢",
-      "Please, pretty please? 💖",
       "I can't take this! 😫",
       "Are you sure you want to do this to me? 😢",
       "You're gonna hurt my feelings! 😥",
@@ -271,7 +282,7 @@ export default function Page() {
       setYesPressed(false);
     }
   }, [yesPressed, noCount, popupShown]);
-  
+  //background: `#fff url(${swalbg})`,
   useEffect(() => {
     if (yesPressed && noCount > 3 && !yespopupShown) {
       Swal.fire({
@@ -328,9 +339,16 @@ export default function Page() {
               src={YesGifs[currentGifIndex]}
               alt="Yes Response"
             />
-            <div className="text-4xl md:text-6xl font-bold my-2" style={{ fontFamily: "Charm, serif", fontWeight: "700", fontStyle: "normal" }}>I Love You !!!</div>
+            <div className="text-4xl md:text-6xl font-bold my-2" style={{ fontFamily: "Charm, serif", fontWeight: "700", fontStyle: "normal" }}>I Love You, Noopur !!!</div>
             <div  className="text-4xl md:text-4xl font-bold my-1" style={{ fontFamily: "Beau Rivage, serif", fontWeight: "500", fontStyle: "normal" }}> You’re the love of my life. </div> 
             <WordMareque />
+            <div>
+              <img
+                className="h-[230px] rounded-lg"
+                src={YES}
+                alt="Yes Resp"
+              />
+            </div>
           </>
         ) : (
           <>
@@ -346,7 +364,7 @@ export default function Page() {
               alt="Love Animation"
             />
             <h1 className="text-4xl md:text-6xl my-4 text-center">
-              My Cutie Tutu, Will you be my Valentine?
+              My Cutie TUTU(Anaya/Noopur), Will you be my forever Valentine?
             </h1>
             <div className="flex flex-wrap justify-center gap-2 items-center">
               <button
@@ -399,7 +417,7 @@ const Footer = () => {
       <span role="img" aria-label="heart">
         ❤️
       </span>
-      {" "}by Ardhen
+      {" "}by Ardhen, Your Husband
     </div>
   );
 };
